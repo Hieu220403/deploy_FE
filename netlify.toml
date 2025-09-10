@@ -3,11 +3,7 @@ command = "npm run build"
 publish = "dist"
 
 # (Tuỳ chọn) Proxy API sang Render để khỏi cấu hình CORS trên BE
-[[redirects]]
-from = "/api/*"
-to = "https://deploy-be-a9cd.onrender.com/:splat"
-status = 200
-force = true
+
 
 # Bắt buộc với SPA: refresh route không 404
 [[redirects]]
