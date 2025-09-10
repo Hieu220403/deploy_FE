@@ -105,7 +105,7 @@ const ReviewInput = ({ restaurantId }: ReviewInputProps) => {
       createReview({
         rating,
         content,
-        media: files,
+        media: files.length > 0 ? files : undefined,
         restaurant_id: restaurantId,
         user_id: user._id,
       }),
