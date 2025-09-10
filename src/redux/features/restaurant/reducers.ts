@@ -71,7 +71,7 @@ const authReducer = createReducer(
         const newTotal = prevTotal + 1;
         const newAvgRating = (prevAvg * prevTotal + Number(rating)) / newTotal;
 
-        state.restaurant.rating = newAvgRating; // (nếu muốn làm tròn thì .toFixed khi HIỂN THỊ)
+        state.restaurant.rating = Number(newAvgRating.toFixed(1)); // (nếu muốn làm tròn thì .toFixed khi HIỂN THỊ)
         state.restaurant.total_reviews = newTotal;
       }),
   // .addCase(updateRatingRestaurant, (state, { payload }) => {
