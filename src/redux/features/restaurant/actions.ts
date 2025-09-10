@@ -136,3 +136,6 @@ export const uploadImageRes = createAsyncThunk<
     return rejectWithValue("Upload image failed");
   }
 });
+export const updateRatingRestaurant = createAction<number>(
+  "restaurant/update-rating",
+);

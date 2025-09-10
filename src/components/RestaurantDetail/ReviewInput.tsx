@@ -19,7 +19,7 @@ import {
 } from "~/redux/features/review/actions";
 import { MediaType, type Media } from "~/types/common";
 import LoginModal from "../modals/Login";
-
+import { updateRatingRestaurant } from "~/redux/features/restaurant/actions";
 interface ReviewInputProps {
   restaurantId: string;
 }
@@ -101,7 +101,7 @@ const ReviewInput = ({ restaurantId }: ReviewInputProps) => {
     if (!user?._id) return setLoginModalOpen(true);
     if (!rating || !content.trim()) return;
     if (!user?._id) return;
-    dispatch(
+    await dispatch(
       createReview({
         rating,
         content,
@@ -110,6 +110,7 @@ const ReviewInput = ({ restaurantId }: ReviewInputProps) => {
         user_id: user._id,
       }),
     );
+    dispatch(updateRatingRestaurant(rating));
     setRating(0);
     setContent("");
     setFiles([]);
